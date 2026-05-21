@@ -1,5 +1,5 @@
 import { LinkItem } from '@/types';
-import { ExternalLink, MoreVertical, Pin, Trash2, Edit2 } from 'lucide-react';
+import { ExternalLink, RotateCcw, Pin, Trash2, Edit2 } from 'lucide-react';
 
 interface LinkCardProps {
   link: LinkItem;
@@ -57,7 +57,7 @@ export function LinkCard({ link, onTogglePin, onDelete, onEdit, onRestore, isRea
                 className="p-2 text-green-500 hover:text-green-600 hover:bg-theme-bg rounded-lg transition-colors"
                 title="Restore"
               >
-                <Edit2 className="w-4 h-4" />
+                <RotateCcw className="w-4 h-4" />
               </button>
             )}
             <button 

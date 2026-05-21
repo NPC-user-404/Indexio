@@ -4,10 +4,10 @@
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   /* New Global Color Palette */
-  --color-theme-bg: #FFEAEA;
-  --color-theme-text: #748DAE;
-  --color-theme-box: #9ECAD6;
-  --color-theme-border: #F5CBCB;
+  --color-theme-bg: #FAFAF8;
+  --color-theme-text: #18181B;
+  --color-theme-box: #FFFFFF;
+  --color-theme-border: #E4E4E7;
 
   /* Primary Accent Colors (Keeping these for buttons/highlights if needed, but adjusted to fit) */
   --color-primary-50: #eff6ff;

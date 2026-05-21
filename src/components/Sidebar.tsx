@@ -52,14 +52,14 @@ export function Sidebar({ folders, currentFilter, onSelectFilter, onCreateFolder
 
       <div className="mb-8">
         <div className="flex items-center justify-between mb-2 px-3">
-          <h3 className="text-xs font-bold text-theme-text/60 uppercase tracking-wider">Workspace Actions</h3>
+          <h3 className="text-xs font-bold text-theme-text/60 uppercase tracking-wider">Workspace</h3>
         </div>
         <div className="space-y-1">
           <button onClick={() => onExport(null)} className="w-full text-left px-3 py-2 text-sm text-theme-text/80 hover:bg-theme-bg/50 rounded-xl transition-colors">
-            Export Workspace
+            Export as PDF
           </button>
           <button onClick={() => onShare(null)} className="w-full text-left px-3 py-2 text-sm text-theme-text/80 hover:bg-theme-bg/50 rounded-xl transition-colors">
-            Share Workspace
+            Copy App Link
           </button>
         </div>
       </div>
@@ -67,14 +67,14 @@ export function Sidebar({ folders, currentFilter, onSelectFilter, onCreateFolder
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2 px-3">
           <h3 className="text-xs font-bold text-theme-text/60 uppercase tracking-wider">Folders</h3>
-          <button 
+          <button
             onClick={() => setIsAddingFolder(true)}
             className="text-theme-text/60 hover:text-theme-text transition-colors"
           >
             <Plus className="w-4 h-4" />
           </button>
         </div>
-        
+
         <div className="space-y-1">
           {folders.filter(f => !f.is_system).map(folder => (
             <div key={folder.id} className="group relative">
@@ -94,13 +94,6 @@ export function Sidebar({ folders, currentFilter, onSelectFilter, onCreateFolder
                   <Bookmark className="w-3.5 h-3.5" />
                 </button>
                 <button
-                  onClick={() => onShare(folder.id)}
-                  className="p-1.5 text-theme-text/60 hover:text-theme-text hover:bg-theme-bg rounded-lg"
-                  title="Share Folder"
-                >
-                  <LayoutGrid className="w-3.5 h-3.5" />
-                </button>
-                <button
                   onClick={() => onDeleteFolder(folder.id, folder.name)}
                   className="p-1.5 text-theme-text/60 hover:text-red-500 hover:bg-theme-bg rounded-lg"
                   title="Delete Folder"
@@ -114,7 +107,7 @@ export function Sidebar({ folders, currentFilter, onSelectFilter, onCreateFolder
 
         {folders.some(f => f.is_system) && (
           <div className="mt-6">
-            <h3 className="text-xs font-bold text-theme-text/60 uppercase tracking-wider mb-2 px-3">System Folders</h3>
+            <h3 className="text-xs font-bold text-theme-text/60 uppercase tracking-wider mb-2 px-3">Smart Folders</h3>
             <div className="space-y-1">
               {folders.filter(f => f.is_system).map(folder => (
                 <button
@@ -126,10 +119,9 @@ export function Sidebar({ folders, currentFilter, onSelectFilter, onCreateFolder
                     <FolderIcon className="w-4 h-4 opacity-50" />
                     <span className="truncate">{folder.name}</span>
                   </div>
-                  <div className="flex gap-1">
-                    <span onClick={(e) => { e.stopPropagation(); onExport(folder.id); }} className="p-1 text-theme-text/40 hover:text-theme-text" title="Export"><Bookmark className="w-3 h-3"/></span>
-                    <span onClick={(e) => { e.stopPropagation(); onShare(folder.id); }} className="p-1 text-theme-text/40 hover:text-theme-text" title="Share"><LayoutGrid className="w-3 h-3"/></span>
-                  </div>
+                  <span onClick={(e) => { e.stopPropagation(); onExport(folder.id); }} className="p-1 text-theme-text/40 hover:text-theme-text" title="Export">
+                    <Bookmark className="w-3 h-3" />
+                  </span>
                 </button>
               ))}
             </div>
